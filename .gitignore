@@ -1,12 +1,15 @@
 # Entorno virtual
-venv/
+Lib
+Include
+Scripts
+pyvenv.cfg
 
 # Archivos de configuración locales
 .env
 
 # Archivos compilados de Python
 *.pyc
-__pycache__/
+__pycache__
 
 # Configuraciones del IDE (opcional)
 .vscode/
