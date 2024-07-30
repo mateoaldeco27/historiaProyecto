@@ -9,7 +9,7 @@ urlpatterns = [
     path('ia/proyecto/<int:pk>', views.proyecto, name='proyecto'),
     path('ia/seccion/<int:pk>/', views.seccion, name='seccion'),
     
-    path('historia/proyecto/<int:pk>', views.proyectoHistoria, name='proyectoHistoria'),
-    path('historia/seccion/<int:pk>/', views.seccionHistoria, name='seccionHistoria'),
-    path('historia/articulo/<int:pk>/', views.articuloHistoria, name='articuloHistoria'),
+    path('Cnaturales/proyecto/<int:pk>', views.proyectoCnaturales, name='proyectoCnaturales'),
+    path('Cnaturales/seccion/<int:pk>/', views.seccionCnaturales, name='seccionCnaturales'),
+    path('Cnaturales/articulo/<int:pk>/', views.articuloCnaturales, name='articuloCnaturales'),
 ]
