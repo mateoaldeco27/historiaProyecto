@@ -16,19 +16,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 pt-3 text-secondary">
+            <div class="col-6 pt-3 text-secondary">
+                <h3 class="text-primary">Secciones de interes</h3>
                 <ul class="lista-flechas">
                 {% for s in secciones %}
                     <li><a class="text-decoration-none text-secondary" href="{{ s.link }}/{{ s.id }}">{{ s.titulo }}</a></li>
                 {% endfor %}
                 </ul>
             </div>
-            <div class="col-12 pt-3 text-secondary">
+            <div class="col-6 pt-3 text-secondary">
+                <h3 class="text-primary">Articulos relacionados</h3>
                 <ul class="lista-flechas">
                 {% for a in articulos %}
                 <li><a class="text-decoration-none text-secondary" href="{{ a.link }}/{{ a.id }}">{{ a.titulo }}</a></li>
-                    {% comment %} <h4 class="text-primary pb-2">{{ a.titulo }}</h4>
-                    {{ a.descripcion|safe }} {% endcomment %}
                 {% endfor %}
                 </ul>
             </div>
