@@ -4,15 +4,8 @@
     <div id="contenido" class="container">
         <div class="row">
             <div class="col-md-8">
-                <h3 class="text-primary pb-2">{{ seccion.titulo }}</h3>
-                {{ seccion.descripcion|safe }}
-            </div>
-            <div class="col-md-4" id="imagen"
-                 style="background-image: url('{% static seccion.imagen %}');
-                         background-position: center;
-                         height: 300px;
-                         background-size: contain;
-                         background-repeat: no-repeat">
+                <h4 class="text-primary pb-2">{{ articulo.titulo }}</h4>
+                {{ articulo.descripcion|safe }}
             </div>
         </div>
         <div class="row">

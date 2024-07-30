@@ -11,4 +11,5 @@ urlpatterns = [
     
     path('historia/proyecto/<int:pk>', views.proyectoHistoria, name='proyectoHistoria'),
     path('historia/seccion/<int:pk>/', views.seccionHistoria, name='seccionHistoria'),
+    path('historia/articulo/<int:pk>/', views.articuloHistoria, name='articuloHistoria'),
 ]

@@ -33,9 +33,17 @@ def proyectoHistoria(request, pk):
 
 def seccionHistoria(request, pk):
     proyectos = Proyecto.objects.all()
-    proyecto = Proyecto.objects.get(nombre__icontains="historia")
+    proyecto = Proyecto.objects.get(nombre__icontains="Ciencias Naturales")
     secciones = Seccion.objects.filter(idProyecto__nombre__icontains=proyecto.nombre).values()
     seccion = Seccion.objects.get(id=pk)
-    articulos = Articulo.objects.filter(idSeccion__titulo__icontains=seccion.titulo)
+    articulos = Articulo.objects.filter(idSeccion__titulo__icontains=seccion.titulo).values()
     context = {"proyectos": proyectos, "secciones": secciones, "seccion": seccion, "articulos": articulos}
     return render(request, "historia/seccionHistoria.html", context)
+
+def articuloHistoria(request, pk):
+    proyectos = Proyecto.objects.all()
+    proyecto = Proyecto.objects.get(nombre__icontains="Ciencias Naturales")
+    secciones = Seccion.objects.filter(idProyecto__nombre__icontains=proyecto.nombre).values()
+    articulo = Articulo.objects.get(id=pk)
+    context = {"proyectos": proyectos, "secciones": secciones, "articulo": articulo}
+    return render(request, "historia/articuloHistoria.html", context)
