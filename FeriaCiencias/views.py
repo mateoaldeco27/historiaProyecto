@@ -20,6 +20,7 @@ def seccion(request, pk):
     secciones = Seccion.objects.all()
     seccion = Seccion.objects.get(id=pk)
     articulos = Articulo.objects.filter(idSeccion__titulo__icontains=seccion.titulo)
+            #select * from articulo WHERE idseccion ilike "%lennon%"
     context = {"proyectos": proyectos, "secciones": secciones, "seccion": seccion, "articulos": articulos}
     return render(request, "ia/seccion.html", context)
 
@@ -40,13 +41,7 @@ def seccionCnaturales(request, pk):
     context = {"proyectos": proyectos, "secciones": secciones, "seccion": seccion, "articulos": articulos}
     return render(request, "ciencias_naturales/seccionCnaturales.html", context)
 
-# def articuloHistoria(request, pk):
-#     proyectos = Proyecto.objects.all()
-#     proyecto = Proyecto.objects.get(nombre__icontains="Ciencias Naturales")
-#     secciones = Seccion.objects.filter(idProyecto__nombre__icontains=proyecto.nombre).values()
-#     articulo = Articulo.objects.get(id=pk)
-#     context = {"proyectos": proyectos, "secciones": secciones, "articulo": articulo}
-#     return render(request, "historia/articuloHistoria.html", context)
+
 def articuloCnaturales(request, pk):
     proyectos = Proyecto.objects.all()
     proyecto = Proyecto.objects.get(nombre__icontains="Ciencias Naturales")
