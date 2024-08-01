@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Proyecto, Seccion, Articulo
+from .models import Proyecto, Seccion, Articulo, ArtImagen
 
 def index(request):
     proyectos = Proyecto.objects.all()
@@ -38,7 +38,7 @@ def seccionCnaturales(request, pk):
     secciones = Seccion.objects.filter(idProyecto__nombre__icontains=proyecto.nombre).values()
     seccion = Seccion.objects.get(id=pk)
     articulos = Articulo.objects.filter(idSeccion__titulo__icontains=seccion.titulo).values()
-    context = {"proyectos": proyectos, "secciones": secciones, "seccion": seccion, "articulos": articulos}
+    context = {"proyectos": proyectos, "secciones": secciones, "seccion": seccion, "articulos": articulos, "proyecto":proyecto}
     return render(request, "ciencias_naturales/seccionCnaturales.html", context)
 
 
@@ -48,6 +48,7 @@ def articuloCnaturales(request, pk):
     secciones = Seccion.objects.filter(idProyecto__nombre__icontains=proyecto.nombre).values()
     articulo = Articulo.objects.get(id=pk)
     articulos = Articulo.objects.filter(idSeccion_id=articulo.idSeccion).values()
-    
-    context = {"proyectos": proyectos, "secciones": secciones, "articulo": articulo, "articulos":articulos}
+    seccion = Seccion.objects.filter(titulo=articulo.idSeccion).get()
+    articuloImagen = ArtImagen.objects.get(idArticulo=pk)
+    context = {"proyectos": proyectos, "secciones": secciones, "articulo": articulo, "articulos":articulos, "artImagen":articuloImagen, "proyecto":proyecto, "seccion": seccion}
     return render(request, "ciencias_naturales/articuloCnaturales.html", context)

@@ -1,13 +1,29 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <div id="contenido" class="container">
+
+    <style>
+        .titulo {
+            color: #77a752;
+        }
+        .subtitulo {
+            background-color: #bbe66b;
+        }
+        #imagen{
+            height: 400px;
+            width: 400px;
+            border-radius: 4px;
+        }
+    </style>
+
+    <div id="contenido" class="container-fluid container-lg">
         <div class="row">
-            <div class="col-md-8">
-                <h3 class="text-primary pb-2">{{ seccion.titulo }}</h3>
+            <div class="col-12 col-md-6 col-lg-7 col-xxl-8">
+                <h5 class="subtitulo"><a class="text-white text-decoration-none" href="{{ proyecto.link }}/{{ proyecto.id }}">{{ proyecto.nombre }}</a></h5>
+                <h3 class="titulo">{{ seccion.titulo }}</h3>
                 {{ seccion.descripcion|safe }}
             </div>
-            <div class="col-md-4" id="imagen"
+            <div class="col-12 col-md-6 col-lg-5 col-xxl-4" id="imagen"
                  style="background-image: url('{% static seccion.imagen %}');
                          background-position: center;
                          height: 300px;
@@ -17,7 +33,7 @@
         </div>
         <div class="row">
             <div class="col-6 pt-3 text-secondary">
-                <h3 class="text-primary">Secciones de interes</h3>
+                <h3 class="titulo">Disciplinas de Interés</h3>
                 <ul class="lista-flechas">
                 {% for s in secciones %}
                     <li><a class="text-decoration-none text-secondary" href="{{ s.link }}/{{ s.id }}">{{ s.titulo }}</a></li>
@@ -25,7 +41,7 @@
                 </ul>
             </div>
             <div class="col-6 pt-3 text-secondary">
-                <h3 class="text-primary">Articulos relacionados</h3>
+                <h3 class="titulo">Artículos Relacionados</h3>
                 <ul class="lista-flechas">
                 {% for a in articulos %}
                 <li><a class="text-decoration-none text-secondary" href="{{ a.link }}/{{ a.id }}">{{ a.titulo }}</a></li>
