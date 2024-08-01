@@ -23,12 +23,21 @@
                 <h3 class="titulo">{{ seccion.titulo }}</h3>
                 {{ seccion.descripcion|safe }}
             </div>
-            <div class="col-12 col-md-6 col-lg-5 col-xxl-4" id="imagen"
-                 style="background-image: url('{% static seccion.imagen %}');
-                         background-position: center;
-                         height: 300px;
-                         background-size: contain;
-                         background-repeat: no-repeat">
+            <div class="col-12 col-md-6 col-lg-5 col-xxl-4">
+                <div  id="imagen"
+                     style="background-image: url('{% static seccion.imagen %}');
+                             background-position: center;
+                             height: 300px;
+                             background-size: contain;
+                             background-repeat: no-repeat">
+                </div>
+                <div class="d-none d-md-block p-3 mt-3" style="background-color: #bbe66b; width:400px;">
+                    <h5>Artículos Relacionados</h5>
+                    <hr>
+                    {% for a in articulos %}
+                        <p><a class="text-decoration-none"style="color: #47773d;" href="{{ a.link }}/{{ a.id }}">{{ a.titulo }}</a></p>
+                    {%  endfor %}
+                </div>
             </div>
         </div>
         <div class="row">
